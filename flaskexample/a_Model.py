@@ -4,11 +4,14 @@ def ModelIt(age, pre_MV,apps,ppm,goals,assists,mins_played):
   # Python code to connect to Postgres
  # You may need to modify this based on your OS,
  # as detailed in the postgres dev setup materials.
- loaded_model = pickle.load(open('GBR_model.sav', 'rb'))
+ loaded_model = pickle.load(open('RF_model.sav', 'rb'))
+ #pre_MV=pre_MV*1000000
  X_features=np.matrix([age, pre_MV,apps,ppm,goals,assists,mins_played])
  #print(np.isinf(X_features).any())
  result = loaded_model.predict(X_features)
+
  delta=((result-int(pre_MV))/int(pre_MV))*100
+ result=result
  def human_format(num):
     magnitude = 0
     while abs(num) >= 1000:

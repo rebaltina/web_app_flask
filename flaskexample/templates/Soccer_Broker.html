@@ -41,42 +41,30 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Project name</a>
+        <a class="navbar-brand" href="#">Soccer Broker</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">db</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+          <li ><a href="{{ url_for('Soccer_Broker_input')}}">Input player's features</a></li>
+              </ul>
       </div><!--/.nav-collapse -->
     </div>
-  </div>
-<br><br>
+    </div>
   <div class="container">
     <div class="starter-template">
       <h1>Soccer_Broker</h1>
-      <img src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/06/29/105304108-makeit_06282018_RonaldothaGod_mezz.940x528.jpg?v=1530307096" alt="Cover" width="470" height="264">
-      <p class="lead">Predicting market value of soccer players<br> </p>
+      <img width="600" height="375" src="https://norcalsoccerdad.files.wordpress.com/2016/06/dollar-bills-with-soccer-ball.jpg?w=600" class="attachment-featured-image-single size-featured-image-single wp-post-image" alt="" srcset="https://norcalsoccerdad.files.wordpress.com/2016/06/dollar-bills-with-soccer-ball.jpg 600w, https://norcalsoccerdad.files.wordpress.com/2016/06/dollar-bills-with-soccer-ball.jpg?w=150 150w, https://norcalsoccerdad.files.wordpress.com/2016/06/dollar-bills-with-soccer-ball.jpg?w=300 300w" sizes="(max-width: 500px) 100vw, 500px" data-attachment-id="4862" data-permalink="https://norcalsoccerdad.com/2016/06/03/lets-talk-about-money/dollar-bills-with-soccer-ball/" data-orig-file="https://norcalsoccerdad.files.wordpress.com/2016/06/dollar-bills-with-soccer-ball.jpg" data-orig-size="600,375" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="dollar bills with soccer ball" data-image-description="" data-medium-file="https://norcalsoccerdad.files.wordpress.com/2016/06/dollar-bills-with-soccer-ball.jpg?w=300" data-large-file="https://norcalsoccerdad.files.wordpress.com/2016/06/dollar-bills-with-soccer-ball.jpg?w=600">
+      <p class="lead" ><font color='red'> Predicting market value of soccer players<br></font> </p>
+      <p> In a no-liquid market as that one of soccer athletes, it is difficult to give a player a price
+        based on his skills and performance. Soccer_Broker is a tool that address the issue by estimating
+        the market value of a player based on his characteristics and most recent performances.
+        In this way, Soccer Broker offers clubs a tool that help forecast return on their investment and make more strategic
+        negotiation and budget decisions</p>
     </div>
-<table class="table table-hover">
-<tr><th>index</th><th>market_value</th><th>player_name</th></tr>
-{% for player in players %}
-<tr><td>{{ player['index'] }}</td><td>{{ player['market_value']}}</td><td> {{ player['player_name'] }}</td></tr>
-{% endfor %}
-</table>
-<head>
-    <meta charset="UTF-8">
-    <title>Dropdown</title>
-</head>
+
 <body>
-<select name= colour method="GET" action="/">
-    {% for colour in colours %}
-    <option value= "{{colour}}" SELECTED>{{colour}}</option>"
-    {% endfor %}
-</select>
-</select>
-</body>
+
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
   </div><!-- /.container -->

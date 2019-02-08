@@ -12,24 +12,51 @@ import pickle
 # You may need to modify this based on your OS,
 # as detailed in the postgres dev setup materials.
 
+
+
 @app.route('/')
-
-
-@app.route('/index')
 def index():
-   return render_template("Soccer_Broker.html")
+       return render_template("Soccer_Broker.html")
 
-@app.route('/input')
+
+@app.route('/input',methods=['GET'])
 def Soccer_Broker_input():
-   return render_template("input.html")
+    nationalities=['Brazil', 'Colombia', 'Kosovo', 'England', 'Mexico', 'Jamaica','Nigeria', 'Italy', 'Chile', 'Greece', 'Croatia', 'France',
+       'Turkey', 'Wales', 'Netherlands', 'Scotland', 'Russia',
+       'Argentina', 'Serbia', 'Paraguay', 'Uruguay', 'FYR Macedonia',
+       'Germany', 'Ecuador', 'Ivory Coast', 'Norway', 'Armenia', 'Spain',
+       'Republic of Ireland', 'Switzerland', 'Slovakia', 'Poland',
+       'Austria', 'Denmark', 'United States', 'Belgium', 'Senegal',
+       'Sweden', 'Benin', 'Algeria', 'Kenya', 'DR Congo', 'Tunisia',
+       'Portugal', 'Iran', 'Ukraine', 'Cape Verde', 'Slovenia', 'Ghana',
+       'Montenegro', 'Burkina Faso', 'Romania', 'Gambia', 'Cameroon',
+       'Korea Republic', 'Venezuela', 'Costa Rica', 'Japan', 'Egypt',
+       'Morocco', 'Mali']
+    clubs=['Shakhtar Donetsk', 'Manchester City', 'others_teams',
+       'FC Barcelona', 'Chelsea FC', 'Tottenham Hotspur',
+       'Southampton FC', 'Liverpool FC', 'Atlético Madrid', 'FC Porto',
+       'Atalanta BC', 'Juventus FC', 'AC Milan', 'US Sassuolo',
+       'Arsenal FC', 'Udinese Calcio', 'SSC Napoli', 'SL Benfica',
+       'ACF Fiorentina', 'Bayern Munich', 'Swansea City', 'Sevilla FC',
+       'Stoke City', 'Manchester United', 'VfB Stuttgart', 'Real Madrid',
+       'Valencia CF', 'UC Sampdoria', 'Genoa CFC', 'Aston Villa',
+       'Inter Milan', 'Spartak Moscow', 'AS Roma', 'Hull City',
+       'Borussia Mönchengladbach', 'Borussia Dortmund', 'AS Monaco',
+       'Newcastle United']
+    foot=['Left', 'Right','Both']
+    roles=['midfield', 'forward', 'backward', 'keeper']
+
+    return render_template("input.html", nationalities=nationalities, clubs=clubs, foot=foot, roles=roles)
 
 @app.route('/output')
 def Soccer_Broker_output():
+
+
  #pull 'birth_name' from input field and store it
    age = request.args.get('age')
    nationality = request.args.get('nationality')
    club = request.args.get('club')
-   pre_MV= request.args.get('pre_MV')
+   pre_MV=request.args.get('pre_MV')
    apps= request.args.get('apps')
    goals = request.args.get('goals')
    assists = request.args.get('assists')

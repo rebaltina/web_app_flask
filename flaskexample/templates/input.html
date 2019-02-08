@@ -30,9 +30,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
 <body>
-
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -42,45 +40,52 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">soccer_broker</a>
+        <a class="navbar-brand" href="#">Soccer Broker</a>
       </div>
-      <div class="collapse navbar-collapse">
+      {% block content %}
+      <div class="Soccer_Broker_input">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="#input">Input player's features</a></li>
         </ul>
       </div><!--/.nav-collapse -->
+      {% endblock %}
     </div>
   </div>
-<br><br>
  <div class="container">
-
    <div class="starter-template">
        <h2>Soccer broker</h2>
        <p>Input player's features</p>
    </div>
-
    <div class = "container">
-
      <form action="/output" method="GET">
        <div class="form-group">
          <label for="age">Age(15-40):</label>
-         <input type="number" id="age" name='age' min="15" max="40" placeholder="e.g. ">
+         <input type="number" value="35" id="age" name='age' min="15" max="40" placeholder="e.g. ">
          <label for="nationality">Nationality:</label>
-         <input type="text" id="nationality" name='nationality' placeholder="e.g. ">
+         <select aria-label="nationality" id="nationality" name="nationality" method="GET" action="/">
+         {% for nationality in nationalities %}
+         <option value="{{nationality}}"SELECTED>{{nationality}}</option>
+         {% endfor %}
+         </select>
          <label for="club">Club:</label>
-         <input type="club" id="club" name='club' placeholder="e.g. "><br>
-         <label for="pre_MV">Previous MV:</label>
-         <input type="number" id="pre_MV" name='pre_MV' placeholder="e.g. ">
+         <select aria-label="club" id="club" name="club" method="GET" action="/">
+         {% for club in clubs %}
+         <option value="{{club}}"SELECTED>{{club}}</option>
+         {% endfor %}
+          </select><br>
+         <label for="pre_MV">Previous MV (US$ M):</label>
+         <input type="number" value="139000000" id="pre_MV" name='pre_MV' placeholder="e.g. ">
          <label for="assist">Appearances:</label>
-         <input type="number" id="apps" name='apps' placeholder="e.g. ">
+         <input type="number" value="43" id="apps" name='apps' placeholder="e.g. "><br>
          <label for="goals">Goals:</label>
-         <input type="number" id="goals" name='goals' placeholder="e.g. ">
+         <input type="number" value="45"id="goals" name='goals' placeholder="e.g. ">
          <label for="assist">Assists:</label>
-         <input type="number" id="assists" name='assists' placeholder="e.g. ">
+         <input type="number" value="8" id="assists" name='assists' placeholder="e.g. "><br>
          <label for="ppm">Ppm:</label>
-         <input type="number" step="any" id="ppm" name='ppm' placeholder="e.g. ">
+         <input type="number" value="10.19" step="any" id="ppm" name='ppm' placeholder="e.g. ">
          <label for="mins_played">Mins_played:</label>
-         <input type="number" id="mins_played" name='mins_played' placeholder="e.g. ">
+         <input type="number" value="3700"id="mins_played" name='mins_played' placeholder="e.g. ">
+         <br>
        </div>
 
        <div>
